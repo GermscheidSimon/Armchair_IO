@@ -7,11 +7,15 @@ app.use(express.static('assets'));
 
 const PORT = process.env.PORT || 5000;
 
+// Route includes
+const bootRouter = require('./routes/boot.router');
 
 app.get('/ping',  (req, res) => {
     res.send('alive')
 });
 
+/* Routes */
+app.use('/api/boot', bootRouter);
 
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`);
