@@ -6,8 +6,8 @@ const router = express.Router();
 router.get('/', (req, res) =>{
     let newGuid = generator.guid()
     let newBot = {
-        guid = newGuid,
-        task = 'mining'
+        guid: newGuid,
+        task: 'mining'
     }
     res.send(JSON.stringify(newBot))
 });
