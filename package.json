@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "armchair-io",
   "version": "0.1.0",
   "private": true,
@@ -40,4 +41,23 @@
       "last 1 safari version"
     ]
   }
+=======
+  "name": "armchair_io",
+  "version": "1.0.0",
+  "description": "ComputerCraft-ServerApplication",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Khaildoran/Armchair_IO.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Khaildoran/Armchair_IO/issues"
+  },
+  "homepage": "https://github.com/Khaildoran/Armchair_IO#readme"
+>>>>>>> 6ea3320c7cb6fb61845faaa9533af3d0ada9be13
 }
