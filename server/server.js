@@ -15,7 +15,7 @@ app.get('/ping',  (req, res) => {
 });
 
 /* Routes */
-app.use('/api/boot', bootRouter);
+app.use('/boot', bootRouter);
 
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`);
