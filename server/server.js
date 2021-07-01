@@ -10,12 +10,11 @@ const PORT = process.env.PORT || 5000;
 // Route includes
 const bootRouter = require('./routes/boot.router');
 
+/* Routes */
 app.get('/ping',  (req, res) => {
     res.send('alive')
 });
-
-/* Routes */
-app.use('/boot', bootRouter);
+app.get('/boot', bootRouter);
 
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`);
