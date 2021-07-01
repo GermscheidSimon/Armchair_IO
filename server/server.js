@@ -14,7 +14,7 @@ const bootRouter = require('./routes/boot.router');
 app.get('/ping',  (req, res) => {
     res.send('alive')
 });
-app.get('/boot', bootRouter);
+app.use('/boot', bootRouter);
 
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`);
