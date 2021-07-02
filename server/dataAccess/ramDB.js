@@ -3,7 +3,8 @@ const docs = require('./documents')
 
 module.exports = ramDB = {
     update: updateTurtle(turtleObj),
-    create: createTurtle(turtleObj)
+    create: createTurtle(turtleObj),
+    get: getTurtles(arrayOfTurtles)
 }
 
 const updateTurtle = (turtleObj) => {
@@ -41,4 +42,17 @@ const createTurtle = (turtleObj) => {
     } else {
         return false;
     }
+}
+
+const getTurtles = (arrayOfTutleLabels) => {
+    arrayOfTurtles = [];
+
+    for (const label of arrayOfTutleLabels) {
+        for (const turtle of docs) {
+            if(turtle.label = label){
+                arrayOfTurtles.push(turtle);
+            }
+        }
+    }
+    return arrayOfTurtles;
 }
