@@ -11,7 +11,7 @@ router.get('/', (req, res) =>{
     // let newTurtle = new Turtle(label = newGuid, watIsPurpose ='mine')
     jobOps.readFile('boot').then((script) =>{
         console.log(script)
-        res.send(JSON.stringify(script.replace(/(\r\n|\n|\r)/gm, "")))
+        res.send(JSON.stringify(script.replace(/(\r\n|\n|\r)/gm, " ")))
     });
 });
 
