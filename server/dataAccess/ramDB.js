@@ -1,13 +1,9 @@
 const Turtle = require('../Models/Turtle')
 const docs = require('./documents')
 
-module.exports = ramDB = {
-    update: updateTurtle(turtleObj),
-    create: createTurtle(turtleObj),
-    get: getTurtles(arrayOfTurtles)
-}
+module.exports = ramDB = {}
 
-const updateTurtle = (turtleObj) => {
+ramDB.update = updateTurtle = (turtleObj) => {
     let isSuccess = false;
     for (const turtle of docs) {
         if (turtleObj.label = turtle.label) {
@@ -24,7 +20,7 @@ const updateTurtle = (turtleObj) => {
     }
     return isSuccess;
 }
-const createTurtle = (turtleObj) => {
+ramDB.create = createTurtle = (turtleObj) => {
     
     const turtle = new Turtle(
         turtleObj.label,
@@ -44,7 +40,7 @@ const createTurtle = (turtleObj) => {
     }
 }
 
-const getTurtles = (arrayOfTutleLabels) => {
+ramDB.get = getTurtles = (arrayOfTutleLabels) => {
     arrayOfTurtles = [];
 
     for (const label of arrayOfTutleLabels) {
