@@ -9,8 +9,9 @@ const router = express.Router();
 router.get('/', (req, res) =>{
     // let newGuid = generator.guid()
     // let newTurtle = new Turtle(label = newGuid, watIsPurpose ='mine')
-    let script = jobOps.readFile('boot')
-    res.send(JSON.stringify(script))
+    jobOps.readFile('boot').then((script) =>{
+        res.send(JSON.stringify(script))
+    });
 });
 
 module.exports = router;
