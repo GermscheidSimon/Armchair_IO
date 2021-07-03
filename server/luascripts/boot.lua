@@ -1,1 +1,3 @@
-print('booting....')
+function boot()
+    print('booting....')
+end
