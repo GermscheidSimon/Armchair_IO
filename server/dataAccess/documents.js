@@ -2,7 +2,7 @@ const Turtle = require("../Models/Turtle");
 
 // temp in memory db for turtles
 const docs = [
-    Turtle(
+    new Turtle(
         "labelName",
         "mine",
         1,
