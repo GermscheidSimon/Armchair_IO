@@ -5,7 +5,7 @@ let jobMap = {
 let fsOps = {}
 
 fsOps.readFile = (job) => {
-    fs.readFile(__dirname + jobMap[job], (error, data) => {
+    fs.readFileSync(__dirname + jobMap[job], (error, data) => {
         if(error) {
             throw error;
         }
