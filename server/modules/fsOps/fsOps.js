@@ -3,7 +3,7 @@ const fs = require('fs');
 let fsOps = {}
 
 fsOps.readFile = (scriptLocation) => {
-    fs.readFile(__dirname + scriptLocation, (error, data) => {
+    fs.readFile(scriptLocation, (error, data) => {
         if(error) {
             throw error;
         }
