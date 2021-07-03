@@ -13,4 +13,4 @@ jobOps.readFile = (job, cb) => {
     });
 }
 
-module.exports = fsOps
+module.exports = jobOps
