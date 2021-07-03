@@ -4,13 +4,13 @@ let jobMap = {
 }
 let fsOps = {}
 
-fsOps.readFile = (job) => {
+fsOps.readFile = (job, cb) => {
     fs.readFileSync(__dirname + jobMap[job], (error, data) => {
         if(error) {
             throw error;
         }
         console.log(data.toString());
-        return data.toString()
+        cb(data.toString())
     });
 }
 

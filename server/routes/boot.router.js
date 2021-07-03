@@ -9,9 +9,10 @@ const router = express.Router();
 router.get('/', (req, res) =>{
     let newGuid = generator.guid()
     let newTurtle = new Turtle(label = newGuid, watIsPurpose ='mine')
-    let jobScript = jobOps.readFile(newTurtle.watIsPurpose)
-    console.log(jobScript)
-    newTurtle.jobScript = jobScript
+    jobOps.readFile(newTurtle.watIsPurpose, (script) => {
+        newTurtle.jobScript = script
+    })
+    console.log(newTurtle.jobScript)
     res.send(JSON.stringify(newTurtle))
 });
 
