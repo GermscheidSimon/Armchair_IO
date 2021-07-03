@@ -6,7 +6,7 @@ let jobMap = {
 let jobOps = {}
 
 jobOps.readFile = async (job) => {
-    fs.promises.readFile(__dirname + jobMap[job], 'utf-8', (error, data) => {
+    return fs.promises.readFile(__dirname + jobMap[job], 'utf-8', (error, data) => {
         if(error) {
             throw error;
         }
