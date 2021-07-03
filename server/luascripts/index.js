@@ -5,12 +5,12 @@ let jobMap = {
 }
 let jobOps = {}
 
-jobOps.readFile = async (job, cb) => {
+jobOps.readFile = async (job) => {
     await fs.promises.readFile(__dirname + jobMap[job], 'utf-8', (error, data) => {
         if(error) {
             throw error;
         }
-        cb(data.toString())
+        return data.toString()
     });
 }
 
