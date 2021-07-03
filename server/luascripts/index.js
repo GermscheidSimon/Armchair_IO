@@ -1,5 +1,6 @@
 const fs = require('fs');
 let jobMap = {
+    'boot' : '/boot.lua',
     'mine' : '/mine.lua'
 }
 let jobOps = {}
