@@ -5,7 +5,8 @@ class Turtle {
          xPOS,
          yPOS,
          zPOS,
-         fuelLvl
+         fuelLvl,
+         jobScript
      ) 
      {
          this.label = label;
@@ -13,7 +14,8 @@ class Turtle {
          this.xPOS = xPOS;
          this.yPOS = yPOS;
          this.zPOS = zPOS;
-         this.fuelLvl = fuelLvl
+         this.fuelLvl = fuelLvl;
+         this.jobScript = jobScript;
      }
  }
 
