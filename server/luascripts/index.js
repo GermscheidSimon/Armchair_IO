@@ -2,14 +2,13 @@ const fs = require('fs');
 let jobMap = {
     'mine' : '/mine.lua'
 }
-let fsOps = {}
+let jobOps = {}
 
-fsOps.readFile = (job, cb) => {
+jobOps.readFile = (job, cb) => {
     fs.readFile(__dirname + jobMap[job], 'utf-8', (error, data) => {
         if(error) {
             throw error;
         }
-        console.log(data.toString());
         cb(data.toString())
     });
 }
