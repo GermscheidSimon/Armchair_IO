@@ -1,4 +1,17 @@
+const fs = require('fs');
 let jobMap = {
-    'mine' : '../luascripts/mine.lua'
+    'mine' : '/mine.lua'
 }
-module.exports = jobMap
+let fsOps = {}
+
+fsOps.readFile = (job) => {
+    fs.readFile(__dirname + jobMap[job], (error, data) => {
+        if(error) {
+            throw error;
+        }
+        console.log(data.toString());
+        return data.toString()
+    });
+}
+
+module.exports = fsOps
