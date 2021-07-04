@@ -4,9 +4,10 @@ function tableToJson(tableObj)
 
     for k, v in pairs(tableObj) do
         if  k != nil then
-            jsonStr + k ":" + v ","
+            jsonStr = jsonStr + k ":" + v ","
         end
     end
     jsonStr = jsonStr + "}"
+    print(jsonStr)
     return jsonStr
 end
