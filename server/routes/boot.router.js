@@ -14,5 +14,20 @@ router.get('/', (req, res) =>{
         res.send(JSON.stringify(script.replace(/(\r\n|\n|\r)/gm, " ")))
     });
 });
+router.get('/helpers', (req, res) =>{
+    // let newGuid = generator.guid()
+    // let newTurtle = new Turtle(label = newGuid, watIsPurpose ='mine')
+    jobOps.readFile('helpers').then((script) =>{
+        console.log(script)
+        res.send(JSON.stringify(script.replace(/(\r\n|\n|\r)/gm, " ")))
+    });
+});
+
+router.get('/purpose', (req, res) =>{
+    console.log(req.body);
+    console.log(req);
+});
+
+
 
 module.exports = router;
