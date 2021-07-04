@@ -13,10 +13,13 @@ function findPurpse()
     local purposeReq = http.post("https://armchair-io.herokuapp.com/boot/purpose", purposeData)
 end
 function bindHelperAPI() 
-    local helperReq = http.get("https://armchair-io.herokuapp.com/assets/helpers.lua")
+    local helperReq = http.get("https://armchair-io.herokuapp.com/boot/helpers")
     local helperFile = fs.open('helpers.lua','w')
     print(helper)
     local helper = helperReq.readAll()
+    
+    local helperLen = string.len(helper) - 1
+    helper = helper:sub(2,scriptlen)
     helperFile.write(helper)
 
     helperFile.close()
