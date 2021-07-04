@@ -6,7 +6,7 @@ function bindHelperAPI()
     helper = helper:sub(2,scriptlen)
     helper.write(helper)
     helper.close()
-    local helpderIsLoaded os.loadAPI("helpers")
+    local helpderIsLoaded = os.loadAPI("helpers")
 end
 function findPurpse()
     local currentStateTbl = {}
