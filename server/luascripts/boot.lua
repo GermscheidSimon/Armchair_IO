@@ -6,7 +6,7 @@ function bindHelperAPI()
     helper = helper:sub(2,scriptlen)
     helper.write(helper)
     helper.close()
-    os.loadAPI("./helpers")
+    local helpderIsLoaded os.loadAPI("helpers")
 end
 function findPurpse()
     local currentStateTbl = {}
@@ -20,7 +20,7 @@ function findPurpse()
     
     local purposeData = helpers.tableToJson(currentStateTbl)
 
-    local purposeReq = http.post("https://armchair-io.herokuapp.com/boot/purpse", purposeData)
+    local purposeReq = http.post("https://armchair-io.herokuapp.com/boot/purpose", purposeData)
 end
 
 
