@@ -12,9 +12,11 @@ function findPurpse()
     local currentStateTbl = {}
 
     local currentGuid = os.getComputerLabel()
+    print(currentGuid)
     local currentLcl = gps.locate()
-    currentStateTbl{"guid"} = currentGuid
-    currentStateTbl{"local"} = currentLcl
+    print(currentLcl)
+    currentStateTbl["guid"] = currentGuid
+    currentStateTbl["local"] = currentLcl
     
     local purposeData = helpers.tableToJson(currentStateTbl)
 
