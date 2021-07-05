@@ -4,15 +4,16 @@ const Handlebars = require('handlebars');
 const workingDir = require('path').resolve(__dirname)
 const serverURL = process.env.serverURL || 'http://localhost:5000/api/s3upload'
 
+const defaultTurtle = require('../../dataAccess/defaultTurtleMeta')
 
 // master template for code snippet generation
 const sourceSnippet = fs.readFileSync((`${workingDir}/../assets/template.html`), {encoding:'utf8', flag:'r'}) 
 
-const compileCodeSnippet = (eventKey) => {
+const compileCodeSnippet = (defaultTurtleMeta) => {
     const template = Handlebars.compile(sourceSnippet);
 
-    // locate and append the two strings '{{keyID}}' and '{{serverURL}}' with coresponding key and url variable
-    const newCodeSnippet = template({keyID: eventKey, serverURL: serverURL});
+   //locate dah tings 
+    const newCodeSnippet = template(defaultTurtleMeta.keys);
     
     return newCodeSnippet;
 }
