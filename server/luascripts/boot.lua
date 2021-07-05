@@ -20,7 +20,7 @@ function bindHelperAPI()
     helperFile.write(helper)
 
     helperFile.close()
-    local helpderIsLoaded = os.loadAPI("./helpers")
+    local helpderIsLoaded = os.loadAPI("/helpers.lua")
 end
 
 
