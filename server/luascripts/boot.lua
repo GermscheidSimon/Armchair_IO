@@ -7,7 +7,6 @@ function findPurpse()
     print(currentLcl)
     currentStateTbl["guid"] = currentGuid
     currentStateTbl["local"] = currentLcl
-    
     local purposeData = helpers.tableToJson(currentStateTbl)
 
     local purposeReq = http.post("https://armchair-io.herokuapp.com/boot/purpose", purposeData)
