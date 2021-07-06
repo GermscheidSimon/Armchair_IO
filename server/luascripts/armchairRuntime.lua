@@ -11,10 +11,11 @@ local StateModel = {
 }
 
 local errorMap = {
-    none = 0,
-    serverConnection = 1,
-    purpose = 2,
-    gpsConnection = 3
+    none = 0,             -- no errors, contiue to purpose script
+    serverConnection = 1, -- unable to connect to server
+    purpose = 2,          -- exception thrown in purpose
+    gpsConnection = 3,    -- exception thrown in gps API
+    webSocketState = 4    -- turtle state set to controlled from app server
 }
 
 
@@ -45,15 +46,26 @@ local postState = function(stateModel)
     return http.post("https://armchair-io.herokuapp.com/boot/initializeTurtle", stateModelJson)
 end
 
+local createOriginstateFile = function(state)
+    orgiinFile = fs.open('originConfig.lua','w')
+    originFile.write(state)
+    originFile.close()
+end
+
 
 local runtime = function()
 
     originState = originStateBuilder()
+    createOriginstateFile(originState)
     originPostStats = postState(originState)
 
-    if originPostStats ~= nill then
-        
+    if originPostStats ~= nil then
+        nextState = textutils.unserialiseJSON(originPostStats)
+        print(nextState)
+
+        StateModel = nextState
     end
+
 
     
     if errorState == 0 then
