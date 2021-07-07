@@ -3,11 +3,12 @@ function findPurpse()
 
     local currentGuid = os.getComputerLabel()
     print(currentGuid)
-    local currentLcl = gps.locate()
+    local cx, cy, cz = gps.locate()
     print(currentLcl)
     currentStateTbl["guid"] = currentGuid
-    currentStateTbl["local"] = currentLcl
-    
+    currentStateTbl["cx"] = cx
+    currentStateTbl["cy"] = cy
+    currentStateTbl["cz"] = cz
     local purposeData = helpers.tableToJson(currentStateTbl)
 
     local purposeReq = http.post("https://armchair-io.herokuapp.com/boot/purpose", purposeData)
