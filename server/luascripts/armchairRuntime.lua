@@ -55,24 +55,19 @@ end
 
 local runtime = function()
 
+    print(originState)
     originState = originStateBuilder()
     createOriginstateFile(originState)
     originPostStats = postState(originState)
 
-    if originPostStats ~= nil then
+   -- if originPostStats ~= nil then
         nextState = textutils.unserialiseJSON(originPostStats)
         print(nextState)
 
-        StateModel = nextState
-    end
+        --StateModel = nextState
+   -- end
 
 
-    
-    if errorState == 0 then
-        
-    else
-
-    end
 end
 
 runtime()
