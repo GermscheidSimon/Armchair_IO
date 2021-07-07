@@ -12,15 +12,8 @@ router.get('/', (req, res) =>{
         res.send(luamin.minify(script))
     });
 });
-router.get('/helpers', (req, res) =>{
-    // let newGuid = generator.guid()
-    // let newTurtle = new Turtle(label = newGuid, watIsPurpose ='mine')
-    jobOps.readFile('helpers').then((script) =>{
-        res.send(luamin.minify(script))
-    });
-});
 
-router.post('/purpose', (req, res) =>{
+router.get('/init', (req, res) =>{
     console.log(req.body);
     console.log(req);
 });

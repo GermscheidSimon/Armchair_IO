@@ -7,7 +7,7 @@ const serverURL = process.env.serverURL || 'http://localhost:5000/api/s3upload'
 const defaultTurtle = require('../../dataAccess/defaultTurtleMeta')
 
 // master template for code snippet generation
-const sourceSnippet = fs.readFileSync((`${workingDir}/../assets/template.html`), {encoding:'utf8', flag:'r'}) 
+const sourceSnippet = fs.readFileSync((`${workingDir}/../assets/template.lua`), {encoding:'utf8', flag:'r'}) 
 
 const compileCodeSnippet = (defaultTurtleMeta) => {
     const template = Handlebars.compile(sourceSnippet);
