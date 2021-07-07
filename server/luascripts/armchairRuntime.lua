@@ -10,13 +10,25 @@ local StateModel = {
     errorState = 0
 }
 
-local errorMap = {
-    none = 0,             -- no errors, contiue to purpose script
-    serverConnection = 1, -- unable to connect to server
-    purpose = 2,          -- exception thrown in purpose
-    gpsConnection = 3,    -- exception thrown in gps API
-    webSocketState = 4    -- turtle state set to controlled from app server
+local OrchestrationCodeMap = {
+    ready = 0,             
+    exe_Purpose = 1,
+    exe_WebSocketState = 2,  
+    err_runtime = 3
+    err_purpose = 4,  
+    err_server = 5,
+    err_gps = 6,    
 }
+--[[
+    ready              - 0 - no errors, contiue to purpose script
+    exe_Puprose        - 1 - Executing Purpose
+    exe_WebSocketState - 2 - Controlled from Server via WebSocket
+
+    err_runtime        - 3 - Failed to Execute Runtime operation
+    err_pupose         - 4 - Exception Thrown in Purpose Script
+    err_server         - 5 - Connection or server error exception
+    err_gps            - 7 - unable to handle GPS location/vectoring
+]]
 
 
 
@@ -52,6 +64,17 @@ local createOriginstateFile = function(state)
     originFile.close()
 end
 
+local assignComputerLabel = function(state)
+    if state.Label ~= nil && os.getComputerLabel ~= nil then
+       os.setComputerLabel(state.Label)
+    end
+    if os.getComputerLabel == state.Label then
+        return true
+    else 
+        return false
+    end
+end
+
 
 local runtime = function()
 
@@ -59,15 +82,18 @@ local runtime = function()
     originState = originStateBuilder()
     createOriginstateFile(originState)
     originPostStats = postState(originState)
+    
 
-   -- if originPostStats ~= nil then
+    if originPostStats ~= nil then
         nextState = textutils.unserialiseJSON(originPostStats)
         print(nextState)
 
-        --StateModel = nextState
-   -- end
+        StateModel = nextState
 
 
+
+
+    end
 end
 
 runtime()
